@@ -1,16 +1,21 @@
-#include <stdio.h>
 #include <math.h>
-
+#include <stdio.h>
 int main()
 {
-    char (r);
+    char (k);
     double G, F, Y, x, a;
+    printf("%s", "введите x");
     scanf("%lf", &x);
+    getchar();
+
+    printf("%s", "введите a");
     scanf("%lf", &a);
-    printf("Ведите букву G,F,Y");
-    scanf("%s", &r);
-    printf("Введите переменную для Y от -1 до 1");
-    switch (r) {
+    getchar();
+
+    printf("Ведите букву G,F,Y \n");
+    scanf("%c", &k);
+
+    switch (k) {
         case 'G': {
             G = (7 * (54 * pow(a, 2) - 33 * a * x + 4 * pow(x, 2))) / (-4 * pow(a, 2) + a * x + 5 * pow(x, 2));
             printf("G = %.3f\n", G);
