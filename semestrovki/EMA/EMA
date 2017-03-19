@@ -1,0 +1,19 @@
+import numpy as np
+from numpy import convolve
+import matplotlib.pyplot as plt
+
+
+def ema(self, data, window):
+    if len(data) < 2 * window:
+        raise ValueError("data is too short")
+    c = 2.0 / (window + 1)
+    current_ema = self.sma(data[-window*2:-window], window)
+    for value in data[-window:]:
+        current_ema = (c * value) + ((1 - c) * current_ema)
+    return current_ema
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+y = [3, 5, 2, 4, 9, 1, 7, 5, 9, 1]
+
+plt.plot(x[len(x) - len(y):],y)
+plt.plot(x, y)
+plt.show()
